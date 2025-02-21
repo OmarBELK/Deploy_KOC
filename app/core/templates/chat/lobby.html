@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Simple HTML Page</title>
+    <script>
+      console.log("it is logging")
+      
+      const ChatSocket = new WebSocket('ws://'+window.location.host+'/ws/socket-server/');
+
+      ChatSocket.onmessage = function(e) {
+        let data = JSON.parse(e.data)
+        console.log("Data: ",data)
+      }
+    
+    </script>
+  </head>
+  <body>
+    <h1>Welcome to my page</h1>
+    <p>This is a sample HTML page.</p>
+  </body>
+</html>

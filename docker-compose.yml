@@ -1,0 +1,56 @@
+version: '3.9'
+
+services:
+  app:
+    build:
+      context: .
+    ports: 
+      - 8000:8000
+    volumes:
+      - ./app:/app
+      ## for production 
+      #- /mnt/:/mnt/
+      #- /mnt/models:/app/models
+      #- /mnt/scalers:/app/scalers
+      ## for local
+      - /Users/mac/Desktop/mnt/:/mnt/
+      - /Users/mac/Desktop/mnt/models:/app/models
+      - /Users/mac/Desktop/mnt/scalers:/app/scalers
+      - /Users/mac/Desktop/mnt/manual_models:/app/manual_models
+      # - type: bind
+      #   source: /Users/mac/Desktop/mnt/ 
+      #   #source: /mnt/ 
+      #   target: /app/sources/mnt/
+
+    environment:
+      - SECRET_KEY=GenericMLsecretkey
+      - DEBUG=1
+      - DB_HOST=db
+      - DB_NAME=GenericMLdb
+      - DB_USER=GenericMLUser
+      - DB_PASS=GenericMLPass
+    depends_on:
+      - db
+    command: >
+          sh -c "python manage.py wait_for_db &&
+            python manage.py migrate &&
+            python manage.py runserver 0.0.0.0:8000"
+
+
+  db:
+    image: postgres:13-alpine
+    environment:
+      - POSTGRES_DB=GenericMLdb
+      - POSTGRES_USER=GenericMLUser
+      - POSTGRES_PASSWORD=GenericMLPass
+
+
+
+
+
+
+    
+      
+
+
+
