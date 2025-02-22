@@ -57,7 +57,7 @@ def search_logic(servername="stage", wellid = None, start=None, end=None, tags=N
 
 def load_influx_koc(start=1694438375534, end=1693833575534, tags= [504, 512, 513], wellid=4377):
         
-    url = 'https://landmark.welllynx.com/service/Influx/ML/getData'
+    url = 'https://stage.welllynx.com/service/Influx/ML/getData'
 
     headers = {
         "x-auth-token": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIyNThkNzQzZi00NjM5LTRhNjEtODMxOC0xMTFjYzhkNzc1ZDgiLCJzdWIiOiJtb3VmaWQiLCJpZCI6NTY5LCJleHBpcmF0aW9uVGltZSI6MjAwODY5NzQ4ODE5NCwidGltZU91dCI6IjMwIiwibGFzdE5hbWUiOiJtYWF0bGFoIiwiZmlyc3ROYW1lIjoibW91ZmlkIiwiY29sbEx5bnhBY2Nlc3NDb2RlIjoiVFpIVE1XMlFJS3k1RkJHZGMzUDN3Zz09IiwiaWF0IjoxNjkzMzM3NDg4LCJleHAiOjIwMDg2OTc0ODh9.X41MKaZFVr5IvA0dSA0IbyJyX57wTpGH1zDSaIAiVm4VyIhj9PsQdKGYHqhwmW0GTR4ZSIyBnIBX71tlh64PNg",
